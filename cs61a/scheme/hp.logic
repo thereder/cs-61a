@@ -1,0 +1,92 @@
+;;; Facts about the families of the fictional 'Harry Potter' universe.
+(fact (married arthur molly))
+(fact (married molly arthur))
+
+(fact (father arthur bill))
+(fact (father arthur charlie))
+(fact (father arthur percy))
+(fact (father arthur fred))
+(fact (father arthur george))
+(fact (father arthur ron))
+(fact (father arthur ginny))
+
+(fact (mother molly bill))
+(fact (mother molly charlie))
+(fact (mother molly percy))
+(fact (mother molly fred))
+(fact (mother molly george))
+(fact (mother molly ron))
+(fact (mother molly ginny))
+
+(fact (father james harry))
+(fact (mother lily harry))
+
+(fact (married harry ginny))
+(fact (married ginny harry))
+
+(fact (father harry james_sirius))
+(fact (father harry albus_severus))
+(fact (father harry lily_luna))
+
+(fact (mother ginny james_sirius))
+(fact (mother ginny albus_severus))
+(fact (mother ginny lily_luna))
+
+(fact (married ron hermione))
+(fact (married hermione ron))
+
+(fact (father ron rose))
+(fact (father ron hugo))
+
+(fact (mother hermione rose))
+(fact (mother hermione hugo))
+
+(fact (married bill fleur))
+(fact (married fleur bill))
+
+(fact (father bill victoire))
+(fact (father bill louis))
+(fact (father bill dominique))
+
+(fact (mother fleur victoire))
+(fact (mother fleur louis))
+(fact (mother fleur Dominique))
+
+(fact (parent ?who ?child)
+      (father ?who ?child))
+
+(fact (parent ?who ?child)
+      (mother ?who ?child))
+
+(fact (sibling ?person1 ?person2)
+	(parent ?person3 ?person1)
+	(parent ?person3 ?person2))
+
+  ;;; Here are some tests
+  (query (sibling ron fred))
+  ; expect Success!
+
+
+(fact (append () ?b ?b))
+(fact (append (?car . ?cdr) ?b (?car . ?rest)) (append ?cdr ?b ?rest)) 
+
+(query (append (1 2 3) (4 5 6) (1 2 3 4 5 6)))
+; expect Success!
+
+(query (append ?x (7 4 6) (2 8 3 7 4 6)))
+; expect Success! ; x: (2 8 3)
+
+(fact (reverse () ()))
+(fact (?a . ?b) ?c) (reverse ?b ?c) (append ?c ?a ?
+
+(query (reverse (1 2 3) (3 2 1)))
+; expect Success!
+
+(query (reverse (1 2 3) ?y))
+; expect Success! ; y: (3 2 1)
+
+(query (member 3 (7 4 3)))
+; expect Success!
+
+(query (equal-lists (1 8 2) (1 8 2))
+; expect Success!
